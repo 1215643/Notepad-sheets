@@ -1,0 +1,238 @@
+1.What is Linux, OS, Kernel, Linux Shell? 
+
+Linux – is a free and open-source Operating System i.e based on Unix Operating System. It is known for its stability, scalability, reliability, security and highly customizable allowing users to choose variety of linux distributions such as Ubuntu, Fedora, CentOS. 
+
+Operating System – is a software program that manages computer hardware and software resources including CPU, memory, storage, I/O devices. It acts as an interface between user application and computer hardware, allowing users to interact with computer systems and run programs. OS include Windows, macOS, Linux and mobile OS such as iOS, Android. 
+
+Kernel – core component of OS that acts as an interface between software and hardware whereas kernel converts user query into machine language and communicates with hardware. 
+
+Linux Shell – is a program that provides a user interface to Operating System. It allows users to interact with system by entering commands and receving feedback from the system. The Linux Shell acts as command interpreter, processing and executing user commands.j 
+
+Operating System - Linux - Tutorialspoint 
+
+2.What are basic commands in Linux?  
+LinuxCommands (1) (phoenixnap.com) 
+
+3.What are the commands to remove directories/files? 
+rm [filename/dirname] 
+rm [filename/dirname] –rf  (recursively and forcefully) 
+recursive - deletes all files and sub folders before being able to delete the specified directory  
+rmdir [dirname]  (removes empty directory)                                                  
+
+4.How do you rename a file? 
+mv [old_filename] [new_filename] 
+
+5.What is the difference between cp and mv? 
+cp is used to copy files or directories from source to destination by creating a duplicate copy in destination and by leaving original copy in source location. 
+mv is used to move files or directories from source to destination by moving original copy from source to destination location rather than creating a duplicate copy. 
+
+6.What is the use of “top” command? 
+top command is used to provide a real-time, dynamic view of system’s performance. It displays information about system processes, usage and statistics in a continuos updating format 
+
+Views are sorted by % of CPU usage 
+PID: process id 
+USER: user who started the process 
+PR: process priority 
+NI: nice value of process 
+VIRT: virtual memory used by process 
+RES: resident memory used by process 
+SHR: shared memory used by process 
+S: current process state (running, sleeping, etc) 
+% CPU: % of CPU usage by process 
+% MEM: % of RAM usage by process 
+TIME+: CPU time used by process 
+COMMAND: command that started the process 
+
+7.How do you check the disk usage? 
+df –h : displays amount of free and used disk space on file system in human readable format (-h) 
+df –sh /path-to-directory: display the disk usage of files and directories on file system,  -sh (s – total size of specified directory , h – human readable format)  
+lsblk: lists information about all block devices including disks and partitions 
+sudo fdisk –l : displays partition information of all disks on the system 
+
+8.What is the difference between df and du? 
+“df” shows usage of the entire file system or partition, whereas “du” shows usage of specific directory or file. 
+“df” provides overview of disk space usage, whereas “du” provides detailed breakdown of disk space usage of files and directories. 
+
+9.What is the difference between space and memory? 
+“space” refers to amount of storage available on storage device, while “memory” refers to amount of RAM (memory used to store data temporarily) available in computer system 
+
+10.How do you check and kill a process? 
+“ps” is used to check processes, “kill [PID]”, “kill -9 [PID]”  is used to kill process, (-9 sends a stronger signal to process and force it to terminate, i.e SIGKILL) 
+
+11.What are flags in Linux? 
+Flags are additional parameters (options/switches)  that can be passed to a command to modify its behavior or specify different options 
+Flags are specified by (-) or (--) 
+
+
+What do you know about ‘awk’, ’grep’, ’cut’, ’find’? 
+
+ How do you rename the content in a file without opening it? 
+
+ What are the types of permissions enabled to a file/folder? 
+
+How do you check the permissions of a file/directory? 
+
+How do you check the hidden files? 
+
+What is mount and its syntax? 
+
+What is SSH? 
+
+What are the compressing commands? 
+
+What is su and sudo? 
+
+What is root user in Linux? 
+
+What are the networking commands? 
+
+What is the difference between. and .. ? 
+
+What is the r and f in –rf? 
+
+How do you grant or restrict the access of a file/directory as different users (owner, user, group)? 
+
+What are the different ways to display the files and directories? 
+
+In how many ways you can create a file? 
+
+What is bash shell and package managers in Linux? 
+
+How do you move back to 3 levels of parent directory using single command?  
+
+What is file system, process, daemon in Linux? 
+
+What is the difference between shell and terminal? 
+
+Where is user information and configure information stored in Linux? 
+ChatGPT
+Let's go through each of your questions:
+
+awk, grep, cut, find:
+12(1).awk: Awk is a powerful programming language mainly used for pattern scanning and text processing. It allows you to search for patterns and perform actions on lines that match the pattern.
+
+12(2).grep: Grep is a command-line utility for searching plain-text data sets for lines that match a regular expression. It's particularly useful for filtering log files or searching for specific patterns.
+
+12(3).cut: Cut is a command for cutting out sections from each line of a file. It's often used for working with text data where specific columns need to be extracted.
+
+12(4).find: Find is a command-line utility used to search and locate files and directories based on conditions you specify for files that match the arguments.
+
+13.Rename the content in a file without opening it:
+To rename the content in a file without opening it, you can use the sed command. For example, to replace "old_text" with "new_text" in a file named "filename.txt":
+
+bash
+Copy code
+sed -i 's/old_text/new_text/g' filename.txt
+
+
+14.Types of permissions enabled to a file/folder:
+There are three types of permissions for a file or folder in Linux:
+
+Read (r): Permission to read the contents of the file or view the contents of the directory.
+Write (w): Permission to modify or delete the file, or add, delete, or rename files in a directory.
+Execute (x): Permission to execute a file or enter a directory.
+
+
+15.Check the permissions of a file/directory:
+You can use the ls command with the -l option to display detailed information about files, including their permissions. For example:
+
+bash
+Copy code
+ls -l filename.txt
+
+
+16.Check hidden files:
+Hidden files in Linux start with a dot (.) in their filenames. To display hidden files, you can use the -a option with the ls command:
+
+bash
+Copy code
+ls -a
+
+17.Mount and its syntax:
+Mounting is the process of attaching a file system to a directory on the Linux hierarchy. The syntax for the mount command is as follows:
+
+bash
+Copy code
+mount [options] device directory
+
+18.SSH:
+SSH (Secure Shell) is a cryptographic network protocol for secure data communication. It allows secure access to remote systems over an unsecured network. You can use SSH for various purposes, including remote command-line login, remote command execution, and secure file transfer.
+
+19.Compressing commands:
+Common compressing commands include tar for creating compressed archives and gzip, bzip2, or xz for compressing individual files. For example:
+
+bash
+Copy code
+tar -czvf archive.tar.gz directory/
+
+20.su and sudo:
+su (Switch User): Allows a user to become another user or the superuser (root) after entering the target user's password.
+sudo (Superuser Do): Allows permitted users to execute commands as the superuser or another user, as specified by the security policy.
+
+21.Root user in Linux:
+The root user is the superuser or administrator in Linux systems. The root user has complete control over the system and can perform any operation.
+
+22.Networking commands:
+Common networking commands include ifconfig (network interface configuration), ping (check network connectivity), traceroute (trace the route to a host), netstat (display network connections), and iptables (configure firewall rules).
+
+23.Difference between '.' and '..':
+. (dot): Represents the current directory.
+.. (dot dot): Represents the parent directory.
+
+24.-rf in rm -rf:
+-r (recursive): Removes directories and their contents recursively.
+-f (force): Ignores nonexistent files and does not prompt for confirmation.
+
+25.Grant or restrict access to a file/directory:
+You can use the chmod command to change file permissions. For example:
+
+bash
+Copy code
+chmod u+rwx,g+rx,o-rwx filename
+This command grants read, write, and execute permissions to the owner, read and execute permissions to the group, and removes all permissions for others.
+
+26.Display files and directories:
+Use commands like ls to display files and directories. Options like -l provide detailed information, and -a shows hidden files.
+
+27.Ways to create a file:
+You can create a file using the touch command:
+
+bash
+Copy code
+touch filename
+Or use a text editor like nano, vim, or gedit:
+
+bash
+Copy code
+nano filename
+
+28.Bash shell and package managers:
+Bash Shell: Bash (Bourne Again SHell) is a command processor that typically runs in a text window where the user types commands.
+Package Managers: Package managers like apt (Advanced Package Tool) on Debian-based systems and yum on Red Hat-based systems are used to install, update, and manage software packages.
+
+29.Move back to 3 levels of parent directory:
+Use the cd command with the ../ notation:
+
+bash
+Copy code
+cd ../../../
+
+30.File system, process, daemon:
+File System: A file system is a way to organize and store files on storage devices.
+
+Process: A process is an executing instance of a program in a computer.
+
+Daemon: A daemon is a background process that runs independently of user control.
+
+31.Shell vs. Terminal:
+Shell: A shell is a command-line interpreter that provides a user interface for access to the operating system's services.
+
+Terminal: A terminal is a physical or virtual device used to input data into a computer and display or print the result.
+
+32.User information and configuration storage:
+User information is stored in the /etc/passwd file, and configuration information is often stored in /etc directory, with specific configurations for applications in subdirectories like /etc/nginx, /etc/apache2, etc.
+
+
+
+
+

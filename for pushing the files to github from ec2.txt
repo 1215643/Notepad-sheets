@@ -1,0 +1,200 @@
+git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint:   git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/ec2-user/bhargav/.git/
+[ec2-user@ip-172-31-5-44 bhargav]$ vi forchuk.sh
+[ec2-user@ip-172-31-5-44 bhargav]$ git add forchuk.sh
+[ec2-user@ip-172-31-5-44 bhargav]$ git commit -m "for practice"
+[master (root-commit) 83c8933] for practice
+ Committer: EC2 Default User <ec2-user@ip-172-31-5-44.ap-south-1.compute.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 forchuk.sh
+[ec2-user@ip-172-31-5-44 bhargav]$ git remote add origin https://github.com/1215643/forchuk.git
+[ec2-user@ip-172-31-5-44 bhargav]$ git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/1215643/forchuk.git'
+[ec2-user@ip-172-31-5-44 bhargav]$ git commit -m "local commit"
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .inventory.sh.swp
+        backup-11-20-2023.tar.gz
+        backup-11-21-2023.tar.gz
+        backup-11-23-2023.tar.gz
+        backup.sh
+        chuk
+        database
+        decrypted_fib.sh
+        decrypted_file1
+        decrypted_useradd.sh
+        decryption.sh
+        deletory.sh
+        direc.sh
+        disk.sh
+        disk1.sh
+        encrypted_fib.sh
+        encrypted_file1
+        encrypted_useradd.sh
+        encryption.sh
+        extracted_files/
+        extractzip.sh
+        fib.sh
+        fibprac.sh
+        file1
+        file55
+        file66
+        finding.sh
+        inventory.sh
+        inventoryserver.sh
+        logfile3hrs.sh
+        logrotation.sh
+        logrotation1.sh
+        mkdir
+        my-archive.zip
+        my_archive.zip
+        my_archive.zip1
+        practice/
+        raa/
+        rajee/
+        raju/
+        ramu/
+        rrr
+        sorted.txt
+        sorted1.txt
+        uniq.sh
+        useradd.sh
+
+nothing added to commit but untracked files present (use "git add" to track)
+[ec2-user@ip-172-31-5-44 bhargav]$ git checkout -b newcommit
+Switched to a new branch 'newcommit'
+[ec2-user@ip-172-31-5-44 bhargav]$ git add .
+[ec2-user@ip-172-31-5-44 bhargav]$ git commit -m "intial commit"
+[newcommit 5f29f99] intial commit
+ Committer: EC2 Default User <ec2-user@ip-172-31-5-44.ap-south-1.compute.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 72 files changed, 725 insertions(+)
+ create mode 100644 .inventory.sh.swp
+ create mode 100644 backup-11-20-2023.tar.gz
+ create mode 100644 backup-11-21-2023.tar.gz
+ create mode 100644 backup-11-23-2023.tar.gz
+ create mode 100644 backup.sh
+ create mode 100644 chuk
+ create mode 100644 database
+ create mode 100644 decrypted_fib.sh
+ create mode 100644 decrypted_file1
+ create mode 100644 decrypted_useradd.sh
+ create mode 100644 decryption.sh
+ create mode 100755 deletory.sh
+ create mode 100644 direc.sh
+ create mode 100644 disk.sh
+ create mode 100644 disk1.sh
+ create mode 100644 encrypted_fib.sh
+ create mode 100644 encrypted_file1
+ create mode 100644 encrypted_useradd.sh
+ create mode 100644 encryption.sh
+ create mode 100644 extracted_files/file1
+ create mode 100644 extractzip.sh
+ create mode 100644 fib.sh
+ create mode 100644 fibprac.sh
+ create mode 100644 file1
+ create mode 100644 file55
+ create mode 100644 file66
+ create mode 100644 finding.sh
+ create mode 100755 inventory.sh
+ create mode 100644 inventoryserver.sh
+ create mode 100644 logfile3hrs.sh
+ create mode 100644 logrotation.sh
+ create mode 100644 logrotation1.sh
+ create mode 100644 mkdir
+ create mode 100644 my-archive.zip
+ create mode 100644 my_archive.zip
+ create mode 100644 my_archive.zip1
+ create mode 100644 practice/decrypted_finding.sh
+ create mode 100644 practice/decrypted_raju.sh
+ create mode 100644 practice/decryption.sh
+ create mode 100644 practice/encrypted_finding.sh
+ create mode 100644 practice/encrypted_raju.sh
+ create mode 100644 practice/encryption.sh
+ create mode 100644 practice/fibonnaci.sh
+ create mode 100644 practice/file1
+ create mode 100644 practice/finding.sh
+ create mode 100644 practice/llog
+ create mode 100644 practice/log3hrs.sh
+ create mode 100644 practice/log3updated.sh
+ create mode 100644 practice/logrotation.sh
+ create mode 100644 practice/raju.sh
+ create mode 100644 practice/sorted1
+ create mode 100644 practice/uniq.sh
+ create mode 100644 practice/uniqfile
+ create mode 100644 raa/file1
+ create mode 100644 raa/file2
+ create mode 100644 raa/file3
+ create mode 100644 raa/my_archive.zip
+ create mode 100644 rajee/extractzip.sh
+ create mode 100644 rajee/my_archive.zip
+ create mode 100644 rajee/raj
+ create mode 100644 rajee/ram
+ create mode 100644 raju/file2
+ create mode 100644 raju/file3
+ create mode 100644 raju/my_archive.zip
+ create mode 100644 ramu/backupfile.sh
+ create mode 100644 ramu/chuk
+ create mode 100644 ramu/file1
+ create mode 100644 rrr
+ create mode 100644 sorted.txt
+ create mode 100644 sorted1.txt
+ create mode 100644 uniq.sh
+ create mode 100644 useradd.sh
+[ec2-user@ip-172-31-5-44 bhargav]$ git push -u origin newcommit
+Username for 'https://github.com': vtu12756@veltech.edu.in
+Password for 'https://vtu12756@veltech.edu.in@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/1215643/forchuk.git/'
+[ec2-user@ip-172-31-5-44 bhargav]$ git remote set-url origin https://vtu12756@veltech.edu.in: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@github.com/1215643/forchuk.git
+[ec2-user@ip-172-31-5-44 bhargav]$ git push -u origin newcommit
+fatal: unable to access 'https://veltech.edu.in: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@github.com/1215643/forchuk.git/': URL using bad/illegal format or missing URL
+[ec2-user@ip-172-31-5-44 bhargav]$ git remote set-url origin https://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@github.com/1215643/forchuk.git
+[ec2-user@ip-172-31-5-44 bhargav]$ git push -u origin newcommit
+Enumerating objects: 78, done.
+Counting objects: 100% (78/78), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (61/61), done.
+Writing objects: 100% (78/78), 45.70 KiB | 5.08 MiB/s, done.
+Total 78 (delta 6), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (6/6), done.
+To https://github.com/1215643/forchuk.git
+ * [new branch]      newcommit -> newcommit
+branch 'newcommit' set up to track 'origin/newcommit'.
+[ec2-user@ip-172-31-5-44 bhargav]$ 

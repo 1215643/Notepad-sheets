@@ -1,0 +1,107 @@
+
+A newer release of "Amazon Linux" is available.
+  Version 2023.3.20240117:
+  Version 2023.3.20240122:
+Run "/usr/bin/dnf check-release-update" for full release and version update info
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Mon Jan 29 06:59:13 2024 from 18.206.107.27
+[ec2-user@ip-172-31-56-251 ~]$ aws configure
+AWS Access Key ID [None]: ^C
+[ec2-user@ip-172-31-56-251 ~]$ sudo -s
+[root@ip-172-31-56-251 ec2-user]# aws configure
+AWS Access Key ID [****************HUOI]: 
+AWS Secret Access Key [****************oHxg]: 
+Default region name [us-east-1]: 
+Default output format [None]: 
+[root@ip-172-31-56-251 ec2-user]# kops get cluster
+Error: State Store: Required value: Please set the --state flag or export KOPS_STATE_STORE.
+For example, a valid value follows the format s3://<bucket>.
+You can find the supported stores in https://kops.sigs.k8s.io/state.
+[root@ip-172-31-56-251 ec2-user]# kops get clusters
+Error: State Store: Required value: Please set the --state flag or export KOPS_STATE_STORE.
+For example, a valid value follows the format s3://<bucket>.
+You can find the supported stores in https://kops.sigs.k8s.io/state.
+[root@ip-172-31-56-251 ec2-user]# export KOPS_STATE_STORE=s3://bhargavkops
+[root@ip-172-31-56-251 ec2-user]# kops get clusters
+NAME                    CLOUD   ZONES
+bhargavkops.k8s.local   aws     us-east-1a
+[root@ip-172-31-56-251 ec2-user]# kops get nodes
+W0129 07:26:42.748954    3915 get.go:78] `kops get [CLUSTER]` is deprecated: use `kops get all [CLUSTER]`
+Error: Cluster.kops.k8s.io "nodes" not found
+[root@ip-172-31-56-251 ec2-user]# kubectl get all
+E0129 07:27:05.917790    3923 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0129 07:27:05.919861    3923 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0129 07:27:05.923039    3923 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0129 07:27:05.925324    3923 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0129 07:27:05.927577    3923 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+error: You must be logged in to the server (the server has asked for the client to provide credentials)
+[root@ip-172-31-56-251 ec2-user]# kubectl get nodes
+E0129 07:27:12.837648    3927 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0129 07:27:12.839707    3927 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0129 07:27:12.841709    3927 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0129 07:27:12.843599    3927 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+E0129 07:27:12.845525    3927 memcache.go:265] couldn't get current server API group list: the server has asked for the client to provide credentials
+error: You must be logged in to the server (the server has asked for the client to provide credentials)
+[root@ip-172-31-56-251 ec2-user]# kops get cluster
+NAME                    CLOUD   ZONES
+bhargavkops.k8s.local   aws     us-east-1a
+[root@ip-172-31-56-251 ec2-user]# kops update cluster --name bhargavkops.k8s.local --yes --admin
+I0129 07:28:12.778439    3982 executor.go:111] Tasks: 0 done / 109 total; 44 can run
+I0129 07:28:13.114493    3982 executor.go:111] Tasks: 44 done / 109 total; 23 can run
+I0129 07:28:13.362201    3982 executor.go:111] Tasks: 67 done / 109 total; 28 can run
+I0129 07:28:13.765163    3982 executor.go:111] Tasks: 95 done / 109 total; 2 can run
+I0129 07:28:13.920446    3982 executor.go:111] Tasks: 97 done / 109 total; 4 can run
+I0129 07:28:14.342235    3982 executor.go:111] Tasks: 101 done / 109 total; 2 can run
+I0129 07:28:14.445406    3982 executor.go:111] Tasks: 103 done / 109 total; 6 can run
+I0129 07:28:14.556805    3982 executor.go:111] Tasks: 109 done / 109 total; 0 can run
+I0129 07:28:14.557748    3982 update_cluster.go:322] Exporting kubeconfig for cluster
+kOps has set your kubectl context to bhargavkops.k8s.local
+
+Cluster changes have been applied to the cloud.
+
+
+Changes may require instances to restart: kops rolling-update cluster
+
+[root@ip-172-31-56-251 ec2-user]# kops get nodes
+W0129 07:28:26.521532    3987 get.go:78] `kops get [CLUSTER]` is deprecated: use `kops get all [CLUSTER]`
+Error: Cluster.kops.k8s.io "nodes" not found
+[root@ip-172-31-56-251 ec2-user]# kops validate cluster
+Using cluster from kubectl context: bhargavkops.k8s.local
+
+Validating cluster bhargavkops.k8s.local
+
+INSTANCE GROUPS
+NAME                            ROLE            MACHINETYPE     MIN     MAX     SUBNETS
+control-plane-us-east-1a        ControlPlane    t3.medium       1       1       us-east-1a
+nodes-us-east-1a                Node            t3.medium       1       1       us-east-1a
+
+NODE STATUS
+NAME                    ROLE            READY
+i-00a16d0201de85e41     node            True
+i-03f0eee1838108335     control-plane   True
+
+Your cluster bhargavkops.k8s.local is ready
+[root@ip-172-31-56-251 ec2-user]# kubectl get nodes
+NAME                  STATUS   ROLES           AGE   VERSION
+i-00a16d0201de85e41   Ready    node            29m   v1.28.5
+i-03f0eee1838108335   Ready    control-plane   31m   v1.28.5
+[root@ip-172-31-56-251 ec2-user]# ls
+[root@ip-172-31-56-251 ec2-user]# kubectl get ns
+NAME              STATUS   AGE
+default           Active   19d
+kube-node-lease   Active   19d
+kube-public       Active   19d
+kube-system       Active   19d
+[root@ip-172-31-56-251 ec2-user]# kubectl get pods
+NAME                               READY   STATUS    RESTARTS   AGE
+nginx-7854ff8877-fxzqm             1/1     Running   0          18d
+nginx-deployment-b976f44dc-m5p8v   1/1     Running   0          18d

@@ -1,0 +1,698 @@
+1. variable
+
+#!/bin/bash
+
+p=$(pwd)
+echo "pwd is $p"
+echo
+s=$(ls)
+echo "ls files are $s"
+echo
+currentdate=$(date)
+echo "current is $currentdate"
+
+output-
+
+pwd is /home/cloudshell-user
+
+ls files are 1.sh
+and1.sh
+and.sh
+
+current is Sat Nov  4 16:30:55 UTC 2023
+
+
+1.1 variable1
+
+#!/bin/bash
+age=10
+if [ $age -gt 9 ]
+then
+        echo "this is correct"
+else
+        echo "this is not correct"
+fi
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh variable1.sh
+this is correct
+
+
+2. Readuserinput.
+
+
+[cloudshell-user@ip-10-4-181-210 ~]$ cat read.sh 
+echo "whats u r age"
+read age
+echo "my age is $age"
+
+output:-
+
+whats u r age
+6
+my age is 6
+
+
+2.1 Readuserinput
+
+ 
+#!/bin/bash
+echo "enter your name"
+read name
+echo "the name is $name"
+echo
+echo "enter your place"
+read place
+echo "the place is $place"
+echo
+echo "enter address"
+read address
+echo "the address is $address"
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh readuserinput.sh
+enter your name
+bhargav
+the name is bhargav
+
+enter your place
+nagavaram
+the place is nagavaram
+
+enter address
+chuk
+the address is chuk
+
+
+3. Arguments
+
+
+#!/bin/bash
+echo "total arguments are $#"
+echo "All arguments are $@"
+
+echo "first $1"
+echo "second $3"
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh arguments.sh
+total arguments are 0
+All arguments are 
+first 
+second 
+
+3.1 Arguments
+
+#!/bin/bash
+echo "total arguments are $#"
+echo "All arguments are $@"
+
+echo "first $1"
+echo "second $3"
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh arguments.sh ram raj raghu
+total arguments are 3
+All arguments are ram raj raghu
+first ram
+second raghu
+
+
+3.2 Arguments
+
+#!/bin/bash
+echo "total arguments are $#"
+echo "All arguments are $@"
+
+echo "first $1"
+echo "second $3"
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh arguments.sh *
+total arguments are 97  and1.sh and.sh arguments.sh array1.sh array2.sh array3.sh arrayaccallele.sh arrayitwillstartandno.ofele.sh arrayitwillstart.sh arrays.sh backup-10-29-2023.tar backup-10-29-2023.tar.gz backup-10-30-2023.tar backup-10-30-2023.tar.gz backup-10-30-23.tar.gz backup.sh boss.sh breakcommand.sh break.sh case.sh casestatement.sh chuk chuk2 chuk3 chuk6 chuk.sh cleanuplogfiles.sh clou.sh concadination1.sh concadination.sh createdirectoryifnot.sh createhtml.sh databackupfile.sh databackup.sh database date.sh deleteinventory.sh df-h.sh df.sh echo.sh elif.sh erro.txt err.txt forloop1.sh forloop.sh function2.sh function.sh hard hardlink html ifthen1.sh ifthen.sh inventoryserver.sh inventory.sh jira.html k8-pn.pem listingfiles LOGFILE log.sh multiply.sh or.sh playingdates.sh ptr.ext ptr.txt raina.tar.gz raj rajfile.sh ram.sh ram.sh.tar.gz read.sh readuserinput.sh samvariable1.sh samvariable.sh scriptsandoperator.sh soft softlink sorted.txt subtract.sh test100.txt test2.txt test.sh tom.sh trr.txt uniqfile.txt uniq.sh untilloop.sh updatedfile.sh useadd1.sh useradd,sh useradd.sh variable1.sh variable6.sh variable.sh whileloop1.sh whileloop.sh
+first 1.sh
+second and1.sh
+
+
+4.if else
+
+#!/bin/bash
+count=30
+if [ $count -gt 26 ]
+then
+        echo "this is correct"
+else
+        echo "this is not correct"
+fi
+
+output:-
+
+this is correct
+
+4.1 if else
+
+#!/bin/bash
+echo "enter a value of a"
+read a 
+echo "enter a value of b"
+read b
+if [ $a -gt $b ]
+then 
+echo "correct"
+else 
+echo "mot correct"
+fi
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh ifthen1.sh
+enter a value of a
+6
+enter a value of b
+3
+correct
+
+4.2 if else
+
+#!/bin/bash
+#compare two numbers
+echo "enter a value"
+read a
+echo "enter b value"
+read b
+if [ $a == $b ]
+then 
+        echo "the two numbers are equal"
+else
+        echo "the two numbers are not equal"
+fi
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh ifthen2.sh
+enter a value
+6
+enter b value
+6
+the two numbers are equal
+
+4.3 elif
+
+#!/bin/bash
+read num
+if [ $num -gt 6 ]
+then
+        echo "$num it is greater"
+elif [ $num -eq 6 ]
+then
+        echo "$num is equal"
+else
+
+        echo "$num it is lessthan"
+fi
+
+output:-
+ 
+cloudshell-user@ip-10-4-181-210 ~]$ sh elif.sh
+6
+6 is equal
+
+4.4 elif
+
+#!/bin/bash
+read num
+if [ $num -gt 6 ]
+then
+        echo "$num it is greater"
+elif [ $num -eq 6 ]
+then
+        echo "$num is equal"
+else
+
+        echo "$num it is lessthan"
+fi
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh elif.sh
+3
+3 it is lessthan
+
+4.5 elif
+
+#!/bin/bash
+read a
+read b
+if [ $a -gt $b ]
+then
+echo "$a is greater than $b"
+elif [ $a -le $b ]
+then
+        echo "$a is lessthan or equal to $b"
+fi
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh elif1.sh
+3
+6
+3 is lessthan or equal to 6
+
+output2:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh elif1.sh
+6
+3
+6 is greater than 3
+
+output3:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh elif1.sh
+6
+6
+6 is lessthan or equal to 6
+
+5.Redirection
+
+ 5.1 output redirection
+   
+[cloudshell-user@ip-10-4-181-210 ~]$ pwd > dekock
+[cloudshell-user@ip-10-4-181-210 ~]$ cat dekock
+/home/cloudshell-user
+
+ 5.2 append redirection (concadinate to the exisisting file)
+
+[cloudshell-user@ip-10-4-181-210 ~]$ echo $? >> dekock
+[cloudshell-user@ip-10-4-181-210 ~]$ cat dekock
+/home/cloudshell-user
+127
+0
+
+ 5.3 input redirection
+
+[cloudshell-user@ip-10-4-181-210 ~]$ cat < dekock 
+/home/cloudshell-user
+127
+0
+
+ 5.4 2> error redirection
+
+[cloudshell-user@ip-10-4-181-210 ~]$ cat a
+cat: a: No such file or directory
+[cloudshell-user@ip-10-4-181-210 ~]$ cat a > error.txt
+cat: a: No such file or directory
+[cloudshell-user@ip-10-4-181-210 ~]$ cat a > error.txt 2> err1.txt (after running this there is no error showing)
+[cloudshell-user@ip-10-4-181-210 ~]$ cat err1.txt
+cat: a: No such file or directory
+[cloudshell-user@ip-10-4-181-210 ~]$ 
+
+
+6.Regular expressions
+  
+        -------{*}-------
+
+[cloudshell-user@ip-10-4-181-210 Raina]$ ls
+kohli  mahi  raj
+[cloudshell-user@ip-10-4-181-210 Raina]$ ls *
+kohli  mahi  raj
+[cloudshell-user@ip-10-4-181-210 Raina]$ ls k*
+kohli
+[cloudshell-user@ip-10-4-181-210 Raina]$ ls r*
+raj
+[cloudshell-user@ip-10-4-181-210 Raina]$ ls *j
+raj
+[cloudshell-user@ip-10-4-181-210 Raina]$ ls m*i
+mahi
+[cloudshell-user@ip-10-4-181-210 Raina]$ 
+
+       -------{?}----------
+[cloudshell-user@ip-10-4-181-210 Raina]$ ls g?
+ls: cannot access g?: No such file or directory
+[cloudshell-user@ip-10-4-181-210 Raina]$ ls ???i
+mahi
+[cloudshell-user@ip-10-4-181-210 Raina]$ ls ra?
+raj
+[cloudshell-user@ip-10-4-181-210 Raina]$ ls ko??
+ls: cannot access ko??: No such file or directory
+[cloudshell-user@ip-10-4-181-210 Raina]$ ls ko???
+kohli
+[cloudshell-user@ip-10-4-181-210 Raina]$ 
+
+   ---------{[]}---------
+[cloudshell-user@ip-10-4-181-210 Raina]$ ls [m]ahi
+mahi
+[cloudshell-user@ip-10-4-181-210 Raina]$ ls [abxcjfeik]ohli
+kohli
+[cloudshell-user@ip-10-4-181-210 Raina]$ ls r[ashuei]j
+raj
+[cloudshell-user@ip-10-4-181-210 Raina]$ ls k[ohnb]i
+ls: cannot access k[ohnb]i: No such file or directory
+[cloudshell-user@ip-10-4-181-210 Raina]$ 
+
+
+6.1 Basic regular expressions
+   
+   [cloudshell-user@ip-10-4-181-210 Raina]$ cat > chuk
+apple
+ball
+bat
+frog
+mango
+grapes
+fat
+[cloudshell-user@ip-10-4-181-210 Raina]$ cat chuk | grep a
+apple
+ball
+bat
+mango
+grapes
+fat
+[cloudshell-user@ip-10-4-181-210 Raina]$ cat chuk | grep ^a
+apple
+[cloudshell-user@ip-10-4-181-210 Raina]$ cat chuk | grep t$
+bat
+fat
+[cloudshell-user@ip-10-4-181-210 Raina]$ 
+
+
+6.2 interval regular expression
+
+[cloudshell-user@ip-10-4-181-210 Raina]$ cat chuk | grep -E 'p{2}'
+apple
+[cloudshell-user@ip-10-4-181-210 Raina]$ cat chuk | grep -E 'l{2}'
+ball
+[cloudshell-user@ip-10-4-181-210 Raina]$ 
+
+6.3 Extended regular expressions
+ 
+
+
+7 operators
+  
+ 7.1 arithmetic operators
+     +, -, \*, /, /, %,
+      multiplicatio= \*
+
+ 7.2 relational operators
+        <      --> -lt (lessthan)
+        >      --> -gt (greaterthan)
+        <=     --> -le (lessthanequal)
+        >=     --> -ge (greaterthanequal)
+        ==     --> -eq (equalto)
+        !=     --> -ne (notequalto)
+
+ 7.3 boolean operators
+      !   --> negation
+     -o   --> OR ( || )
+     -a   --> and ( && )
+
+ [cloudshell-user@ip-10-4-181-210 ~]$ cat and1.sh
+#!/bin/bash
+if [ -e "soft" ] && [ -r "soft" ]
+then
+echo "fine"
+else
+        echo "not able to find or read"
+fi
+
+ output:-
+[cloudshell-user@ip-10-4-181-210 ~]$ sh and1.sh
+fine
+
+anotherone:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ cat and.sh
+#!/bin/bash
+read n
+if [ $n -gt 2 ] && [ $n -gt 6 ]
+then
+        echo "correct"
+else
+        echo "something wrong"
+fi
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh and.sh
+5
+something wrong
+
+output2:-
+[cloudshell-user@ip-10-4-181-210 ~]$ sh and.sh
+7
+correct
+
+
+
+8 Arrays
+
+     8.1 accessing a single element
+
+[cloudshell-user@ip-10-4-181-210 ~]$ cat array2.sh
+#!/bin/bash
+b=(10 20 30 40)
+  echo "${b[1]}"
+
+c=(1 2 3 4 5)
+  echo "${c[3]}"
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh array2.sh
+20
+4
+
+anotherone:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ cat array3.sh
+#!/bin/bash
+c=([1]=100 [2]=300 [3]=500 [4]=600)
+echo "${c[3]}"
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh array3.sh
+500
+
+    8.2 accessing all elements (*)
+
+[cloudshell-user@ip-10-4-181-210 ~]$ cat array3.sh
+#!/bin/bash
+c=([1]=100 [2]=300 [3]=500 [4]=600)
+echo "${c[*]}"
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh array3.sh
+100 300 500 600
+
+    8.3 accessing all elements (@)
+ 
+ [cloudshell-user@ip-10-4-181-210 ~]$ cat array3.sh
+#!/bin/bash
+c=([1]=100 [2]=300 [3]=500 [4]=600)
+echo "${c[@]}"
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh array3.sh
+100 300 500 600
+
+     8.4 accessing all elements of array starts from given index
+
+[cloudshell-user@ip-10-4-181-210 ~]$ cat arrayitwillstart.sh
+#!/bin/bash
+c=([1]=100 [2]=300 [3]=500 [4]=600)
+echo "${c[@]:2}"
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh arrayitwillstart.sh
+300 500 600
+
+    8.5 accessing given number of elements from given start index
+
+    [cloudshell-user@ip-10-4-181-210 ~]$ cat arrayitwillstartandno.ofele.sh
+#!/bin/bash
+c=([1]=100 [2]=300 [3]=500 [4]=600)
+echo "${c[@]:2:2}"
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh arrayitwillstartandno.ofele.sh
+300 500
+
+
+9. functions
+
+ #!/bin/bash
+add () {
+        result=$(( $1 + $2 ))
+        echo "the sum is $result"
+}
+add 3 3
+
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh function.sh
+the sum is 6
+
+another example:-
+
+
+#!/bin/bash\
+function subtract() 
+{
+
+read a
+
+read b
+
+echo " the subtract is $(( a-b ))"
+}
+subtract
+
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh subtract.sh
+10
+4
+ the subtract is 6
+
+
+10.forloop
+
+[cloudshell-user@ip-10-4-181-210 ~]$ cat forloop.sh
+for i in  1 2 3 4 4 
+do
+   echo " this is the $i time"
+done
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh forloop.sh
+ this is the 1 time
+ this is the 2 time
+ this is the 3 time
+ this is the 4 time
+ this is the 4 time
+
+anotherone:-
+
+
+#!/bin/bash
+for i in {1..6}
+do
+echo "number is $i"
+done
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh forloop1.sh
+number is 1
+number is 2
+number is 3
+number is 4
+number is 5
+number is 6
+
+
+11.while loop
+
+ in whileloop must and should the statement should be correct then only it's get into the loop. otherwise it woudn't go into the loop. and the loop will keep on happens untill the statements gets false. 
+
+[cloudshell-user@ip-10-4-181-210 ~]$ cat whileloop.sh
+#!/bin/bash
+read a
+while [ $a -gt 5 ]
+do
+echo "$a"
+a=$(( a - 1 ))
+done 
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh whileloop.sh
+10
+10
+9
+8
+7
+6
+
+anotherone:-
+
+
+#!/bin/bash
+read a 
+i=0
+while [ $i -lt $a ]
+do
+echo $i
+i=$(( i + 1 ))
+done
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh whileloop1.sh
+5
+0
+1
+2
+3
+4
+
+12.untilloop
+
+  in untilloop must and should the statement should be false then only it's get into the loop. otherwise it woudn't go into the loop. and the loop will keep on happens untill the statements gets true.
+
+[cloudshell-user@ip-10-4-181-210 ~]$ cat untilloop.sh
+#!/bin/bash
+read a
+until [ $a -gt 5 ]
+do
+echo $a
+a=$(( a + 1 ))
+done
+
+output:-
+
+[cloudshell-user@ip-10-4-181-210 ~]$ sh  untilloop.sh
+0
+0
+1
+2
+3
+4
+5
+
+for infinity numbers through untilloop
+
+#!/bin/bash
+count=1
+until false
+do
+        echo $count
+        ((count++))
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+

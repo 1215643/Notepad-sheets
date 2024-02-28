@@ -1,0 +1,38 @@
+Checking prerequisites...
+Cannot initialize: /home/ec2-user/splunk/etc/apps/splunk_instrumentation/metadata/local.meta: Permission denied
+Cannot initialize: /home/ec2-user/splunk/etc/apps/learned/metadata/local.meta: Permission denied
+        Checking http port [172.31.7.201:8000]: Cannot initialize: /home/ec2-user/splunk/etc/apps/splunk_instrumentation/metadata/local.meta: Permission denied
+Cannot initialize: /home/ec2-user/splunk/etc/apps/learned/metadata/local.meta: Permission denied
+not available
+ERROR: http port [172.31.7.201:8000] - port is already bound.  Splunk needs to use this port.
+
+
+Splunk needs the appropriate permissions to read and write to its configuration files and directories.
+
+
+Identify the process that is using port 8000 and either stop that process or configure Splunk to use a different port.
+
+change splunk web port
+
+navigate the web.config file
+
+sudo lsof -i :8000
+
+splunk stop
+
+splunk start
+
+jenkins page has opend at that moment so didn't tried at that moment
+
+tomcat:-
+
+check firewall settings
+sudo iptables -L
+
+tomcat logs
+cat /home/ec2-user/tomcat/logs/catalina.out
+
+access logs
+cat /home/ec2-user/tomcat/logs/catalina.out
+
+working on the tomcat part.

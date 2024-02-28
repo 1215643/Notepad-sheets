@@ -1,0 +1,267 @@
+1.backupfiles
+
+#!/bin/bash
+
+BACKUPFILE="backup-$(date +%m-%d-%Y)"
+
+archive="${1:-$BACKUPFILE}"
+
+find . -mtime -1 -type f -print0 | xargs -0 tar rvf "$archive.tar"
+
+gzip "$archive.tar"
+
+echo "Directory $PWD backed up in archive file $archive.tar.gz"
+
+exit 0
+
+2. useradd
+
+#!/bin/bash
+echo "please provide usename"
+read user
+echo
+grep -q $user /etc/passwd
+if [ $? -eq 0 ]
+then
+        echo " error.... this user already exists"
+        echo
+        exit 0
+fi
+echo "please provide describtion"
+read d
+echo "Do you want to specify the user id (y/n) ?"
+read yn
+if [ "$yn" == y ]
+then
+        echo "please enter user id which is greater than 1001"
+        read uid
+        useradd $user -c "$d" -u $uid
+        echo
+        echo "$user account has been created successfully with user defined UID"
+elif [ "$yn" == n ]
+then
+        useradd $user  -c "$d"
+        echo "system defined uid will be created"
+
+        echo
+        echo "$user account has been created successfully with system defined uid"
+        fi
+
+3.inventory
+
+#!/bin/bash
+echo "please enter hostname"
+read host
+echo
+grep -q $host /home/cloudshell-user/database
+if [ $? -eq 0 ]
+then
+        echo "the host already exists"
+
+echo
+exit 0
+fi
+echo "enter ip address"
+read ip
+echo
+grep -q $ip /home/cloudshell-user/database
+if [ $? -eq 0 ]
+then
+        echo "the ip already exists"
+        echo
+        exit 0
+fi
+echo "enter description"
+read desc
+echo
+echo "hostname ipaddress desc" > /home/cloudshell-user/database
+echo "$host $ip $desc" >> /home/cloudshell-user/database
+echo "records addes to the database"
+
+ 3.2 deletory
+
+#!/bin/bash
+echo " enter host or ip"
+read hip
+echo 
+grep -q $hip /home/cloudshell-user/database1
+if [ $? -eq 0 ]
+then
+        echo
+        sed -i '/'$hip'/d' /home/cloudshell-user/database1
+        echo "$hip is removed from database"
+else
+        echo " no host & ip are availabe"
+fi
+
+3.3 inventoryserver
+
+#!/bin/bash
+echo "select one"
+echo
+echo 'a=add'
+echo 'd=del'
+echo
+
+read choice
+case $choice in
+
+        a) /home/cloudshell-user/Raina/inv.sh ;;
+        d) /home/cloudshell-user/Raina/del.sh ;;
+        *) echo "invalid option"
+esac
+
+4.extract
+
+if [ $# -ne 1 ]; then
+   echo "Usage: $0 <zip_file>"
+      exit 1
+      fi
+      zip_file="$1"
+      # Check if the zip file exists
+      if [ ! -f "$zip_file" ]; then
+         echo "Error: File '$zip_file' not found."
+            exit 1
+            fi
+            # Extract the contents of the zip file to the current directory
+            unzip "$zip_file"
+            echo "Extraction complete."
+
+
+8.encryption
+
+#!/bin/bash
+#
+## Check if the necessary command-line argument is provided
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 <input_file> <output_file>"
+        exit 1
+        fi
+
+        input_file="$1"
+        output_file="$2"
+        # Prompt for a password
+        read -s -p "Enter a password: " password
+        echo
+        # Encrypt the file using openssl
+        openssl enc -aes-256-cbc -salt -in "$input_file" -out "$output_file" -k "$password"
+
+        if [ $? -eq 0 ]; then
+            echo "File encrypted successfully."
+            else
+                echo "Encryption failed."
+                fi
+
+sudo sh encryption.sh extract.sh encrypted_extract.sh 
+enter a password:
+File encrypted successfully.
+
+    
+
+  decryption:-
+
+
+if [ $# -ne 2 ]; then
+            echo "Usage: $0 <input_file> <output_file>"
+                exit 1
+fi
+
+input_file="$1"
+output_file="$2"
+
+# Prompt for the password used for encryption
+ read -s -p "Enter the decryption password: " password
+ echo
+
+# # Decrypt the file using openssl
+ openssl enc -d -aes-256-cbc -in "$input_file" -out "$output_file" -k "$password"
+
+ if [ $? -eq 0 ]; then
+     echo "File decrypted successfully."
+     else
+         echo "Decryption failed. Please check the password."
+         fi
+         
+ sudo sh decryption.sh encrypted_finding.sh decrypted_finding.sh
+Enter the decryption password: 
+File decrypted successfully.
+
+cat decrypted_count.sh
+
+
+9.logrotation
+
+
+#!/bin/bash
+log_file="/var/log/myapp.log"
+num_backups=5
+
+# Check if the log file exists before performing log rotation
+if [ -f "$log_file" ]; then
+    for ((i=$num_backups; i>1; i--)); do
+        prev=$((i-1))
+        [ -f "$log_file.$prev" ] && mv "$log_file.$prev" "$log_file.$i"
+    done
+    [ -f "$log_file" ] && mv "$log_file" "$log_file.1"
+    touch "$log_file"
+    echo "Log file created"
+else
+    echo "Log file not found: $log_file"
+fi
+
+
+5.finding
+
+!/bin/bash
+if [ -d "$@" ]; then
+echo "Files found: $(find "$@" -type f | wc -l)"
+echo "Folders found: $(find "$@" -type d | wc -l)"
+else
+echo "[ERROR] Please retry with another folder."
+exit 1
+fi
+
+6. count the lines and files
+
+if [ $# -lt 1 ]
+then
+  echo "Usage: $0 file ..."
+    exit 1
+    fi
+
+    echo "$0 counts the lines of code" 
+    l=0
+    n=0
+    s=0
+    for f in $*
+    do
+      if [ -O $f ] # checks whether file owner is running the script
+        then 
+              l=`wc -l $f | sed 's/^\([0-9]*\).*$/\1/'`
+                    echo "$f: $l"
+                          n=$[ $n + 1 ]
+                                s=$[ $s + $l ]
+                                  else
+                                        continue
+                                          fi
+                                          done
+
+                                          echo "$n files in total, with $s lines in total"
+
+
+
+7.system maintaince.sh
+
+echo -e "\n$(date "+%d-%m-%Y --- %T") --- Starting work\n"
+yum update
+yum -y upgrade
+
+yum -y autoremove
+yum autoclean
+
+yum clean all
+
+rsync -av /home/cloudshell-user/Raina  /home/cloudshell-user/ram
+
+
+echo -e "\n$(date "+%T") \t Script Terminated"

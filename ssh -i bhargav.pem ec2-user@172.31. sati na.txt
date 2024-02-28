@@ -1,0 +1,10 @@
+        	ssh -i "bhargav.pem" ec2-user@172.31.46.97
+
+
+ssh -i "bhargav.pem" ubuntu@172.31.40.97
+
+ssh -i "bhargav.pem" ec2-user@172.31.46.97
+
+
+
+          
